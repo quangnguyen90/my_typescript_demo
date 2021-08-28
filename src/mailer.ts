@@ -1,4 +1,4 @@
-export const send = (email: string, subject: string, content: string): boolean => {
+export const send = (email: string, subject: string, content: string): Promise<boolean> => {
     console.log(email + "-" + subject + "-" + content);
-    return true;
+    return Promise.resolve(true);
 }
