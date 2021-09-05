@@ -1,6 +1,7 @@
 // interface
 // optional properties
 // optional chaining
+// implement interface
 import { send } from './mailer';
 
 interface Pet {
@@ -54,3 +55,51 @@ console.log(getPetName(newContact));
 console.log(getPetName(otherContact));
 
 console.log(getFirstAddress(newContact)?.city);
+
+//---------------------------------------------- implement interface
+// Example 1: Basic
+class MyContact implements Contact {
+    name: string;
+    phone: string;
+
+    constructor(name: string, phone: string) {
+        this.name = name;
+        this.phone = phone;
+    }
+}
+
+const a = new MyContact('A', '0987654321');
+console.log(a.name);
+
+// Example 2: Advance
+interface ContactAdapter {
+    getData: () => Promise<Contact[]>;
+}
+
+class ContactApp {
+    adapter: ContactAdapter;
+    constructor(adapter: ContactAdapter) {
+        this.adapter = adapter;
+    }
+
+    async render() {
+        const contacts: Contact[] = await this.adapter.getData();
+        console.table(contacts);
+    }
+}
+
+class MyContactAdapter implements ContactAdapter {
+    async getData() {
+        // TODO: Get data from API
+        // const contacts: Contact[] = await axios here.....
+        const contacts: Contact[] = [
+            { name: 'A', phone: '123' },
+            { name: 'B', phone: '456' }
+        ];
+        return contacts;
+    }
+}
+
+const adapter = new MyContactAdapter();
+const app = new ContactApp(adapter);
+app.render();
