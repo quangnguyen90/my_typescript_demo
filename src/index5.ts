@@ -2,6 +2,7 @@
 // optional properties
 // optional chaining
 // implement interface
+// interface declaration merging
 import { send } from './mailer';
 
 interface Pet {
@@ -20,6 +21,10 @@ interface Contact {
     addresses?: Address[];
 };
 
+interface Contact {
+    isDeleted?: boolean;
+}
+
 const contacts: Contact[] = [];
 
 const newContact: Contact = {
@@ -29,6 +34,7 @@ const newContact: Contact = {
     pet: {
         name: 'A',
     },
+    isDeleted: false
 }
 
 const otherContact: Contact = {
