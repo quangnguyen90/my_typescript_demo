@@ -3,6 +3,7 @@
 // optional chaining
 // implement interface
 // interface declaration merging
+// type inference
 import { send } from './mailer';
 
 interface Pet {
@@ -89,7 +90,7 @@ class ContactApp {
     }
 
     async render() {
-        const contacts: Contact[] = await this.adapter.getData();
+        const contacts = await this.adapter.getData();
         console.table(contacts);
     }
 }
