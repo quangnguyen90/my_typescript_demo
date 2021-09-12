@@ -4,6 +4,7 @@
 // implement interface
 // interface declaration merging
 // type inference
+// duck tying (structural typing)
 import { send } from './mailer';
 
 interface Pet {
@@ -43,7 +44,16 @@ const otherContact: Contact = {
     phone: '0987654322',
 }
 
+// Duck typing
+// Recommend // const anotherContact: Contact
+// Not recommend // but still ok if has enough required fields in interface Contact
+const anotherContact = {
+    name: 'Nguyen Phu Quang 3',
+    phone: '098765433',
+}
+
 contacts.push(newContact);
+contacts.push(anotherContact);
 
 // if (newContact.email !== undefined)
 if (newContact.email) {
