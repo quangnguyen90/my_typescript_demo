@@ -5,10 +5,27 @@
 // interface declaration merging
 // type inference
 // duck tying (structural typing)
+// Enum (enumerable)
 import { send } from './mailer';
+
+enum PetType {
+    //----- Way 1
+    Dog,
+    Cat,
+    Reptile,
+    Bird,
+    Fish,
+    //----- Way 2
+    // Dog = 'Dog',
+    // Cat = 'Cat',
+    // Reptile = 'Reptile',
+    // Bird = 'Bird',
+    // Fish = 'Fish',
+}
 
 interface Pet {
     name: string;
+    type: PetType;
 };
 
 interface Address {
@@ -35,6 +52,7 @@ const newContact: Contact = {
     email: 'abc@gmail.com',
     pet: {
         name: 'A',
+        type: PetType.Dog
     },
     isDeleted: false
 }
