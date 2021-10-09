@@ -1,7 +1,7 @@
 // type inference
 function foo() {
-    // before: let i; --> line 127: not suggest function toUpperCase()
-    // after: let i: string --> line 127: auto suggest function toUpperCase()
+    // before: let i; --> line 13: not suggest function toUpperCase()
+    // after: let i: string --> line 13: auto suggest function toUpperCase()
     let i: string;
 
     if (Math.random() > 0.5) {

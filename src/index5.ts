@@ -6,6 +6,7 @@
 // type inference
 // duck tying (structural typing)
 // Enum (enumerable)
+// Union type
 import { send } from './mailer';
 
 enum PetType {
@@ -36,6 +37,7 @@ interface Contact {
     name: string;
     phone: string;
     email?: string;
+    gender?: 'male' | 'female';
     pet?: Pet;
     addresses?: Address[];
 };
@@ -50,6 +52,7 @@ const newContact: Contact = {
     name: 'Nguyen Phu Quang',
     phone: '0987654321',
     email: 'abc@gmail.com',
+    gender: 'female',
     pet: {
         name: 'A',
         type: PetType.Dog
