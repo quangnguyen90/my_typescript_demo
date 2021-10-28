@@ -1,10 +1,17 @@
 // union type
-function isWeekend(date: Date | string | number): boolean {
+// type alias
+type MixedDate = Date | string | number;
+
+function isWeekend(date: MixedDate): boolean {
     if (typeof date === 'string' || typeof date === 'number') {
         date = new Date(date);
     }
     const day = date.getDay();
     return day === 6 || day === 0; 
+}
+
+function isLastDayOfMonth(date: MixedDate): boolean {
+    return false;
 }
 
 console.log(isWeekend(new Date())); // true
